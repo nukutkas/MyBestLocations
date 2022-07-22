@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nnU-MB-GOB">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,29 +13,29 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CurrentLocationViewController" customModule="MyBestLocations" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPe-Wd-cQE">
-                                <rect key="frame" x="16" y="16" width="343" height="20.5"/>
+                                <rect key="frame" x="16" y="60.000000000000007" width="396" height="20.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="o9y-l0-QXF">
-                                <rect key="frame" x="16" y="60.5" width="343" height="57"/>
+                                <rect key="frame" x="16" y="104.33333333333333" width="396" height="56.666666666666671"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="iQV-Pz-HPC">
-                                        <rect key="frame" x="0.0" y="0.0" width="163.5" height="57"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="190" height="56.666666666666664"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPZ-MC-SQs">
-                                                <rect key="frame" x="0.0" y="0.0" width="67" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitude:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECS-qj-XTc">
-                                                <rect key="frame" x="0.0" y="36.5" width="81" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="36.333333333333329" width="81" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -43,16 +43,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="nJK-qr-F6S">
-                                        <rect key="frame" x="179.5" y="0.0" width="163.5" height="57"/>
+                                        <rect key="frame" x="206" y="0.0" width="190" height="56.666666666666664"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude goes here" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8l-NZ-4kj">
-                                                <rect key="frame" x="21" y="0.0" width="142.5" height="20.5"/>
+                                                <rect key="frame" x="47.666666666666686" y="0.0" width="142.33333333333334" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitude goes here" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79Q-5y-nJV">
-                                                <rect key="frame" x="7" y="36.5" width="156.5" height="20.5"/>
+                                                <rect key="frame" x="33.666666666666657" y="36.333333333333329" width="156.33333333333334" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -62,17 +62,20 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5j-Tg-uiK">
-                                <rect key="frame" x="16" y="186" width="343" height="31"/>
+                                <rect key="frame" x="16" y="229.33333333333334" width="396" height="31.000000000000028"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Tag Location"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZJ-j4-cHd">
-                                <rect key="frame" x="16" y="611" width="343" height="31"/>
+                                <rect key="frame" x="16" y="788" width="396" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Get My Locatoin"/>
+                                <connections>
+                                    <action selector="getLocation" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Oo-qt-5Ns"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Address goes here)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WV7-vF-RmC">
-                                <rect key="frame" x="16" y="141.5" width="343" height="20.5"/>
+                                <rect key="frame" x="16" y="185" width="396" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -93,16 +96,19 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m5j-Tg-uiK" secondAttribute="trailing" constant="16" id="cmz-fd-n9N"/>
                             <constraint firstItem="bZJ-j4-cHd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="gD5-ig-0Xp"/>
                             <constraint firstItem="o9y-l0-QXF" firstAttribute="top" secondItem="nPe-Wd-cQE" secondAttribute="bottom" constant="24" id="jqx-55-OIE"/>
-                            <constraint firstItem="bZJ-j4-cHd" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="24" id="mRh-Qb-8oe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="o9y-l0-QXF" secondAttribute="trailing" constant="16" id="scF-2t-Bi3"/>
                             <constraint firstItem="m5j-Tg-uiK" firstAttribute="top" secondItem="WV7-vF-RmC" secondAttribute="bottom" constant="24" id="uQZ-ie-oUM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bZJ-j4-cHd" secondAttribute="bottom" constant="24" id="zuQ-dF-FVR"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Tag" id="qYb-GI-HPI"/>
                     <connections>
+                        <outlet property="addressLabel" destination="WV7-vF-RmC" id="Rf5-D2-gbx"/>
+                        <outlet property="getButton" destination="bZJ-j4-cHd" id="WsQ-Rd-bvc"/>
                         <outlet property="latitudeLabel" destination="Z8l-NZ-4kj" id="Dku-xQ-1Dg"/>
                         <outlet property="longitudeLabel" destination="79Q-5y-nJV" id="KHV-Bb-3od"/>
                         <outlet property="messageLabel" destination="nPe-Wd-cQE" id="cV9-SH-2L9"/>
+                        <outlet property="tagButton" destination="m5j-Tg-uiK" id="uDF-yH-HfK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
