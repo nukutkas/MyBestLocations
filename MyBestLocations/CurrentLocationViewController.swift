@@ -19,10 +19,12 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     
     let locationManager = CLLocationManager()
     var location: CLLocation?
+    var updatingLocation = false
+    var lastLocationError: Error?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        updateLabels()
     }
     
     // MARK: - Actions
@@ -49,7 +51,15 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
       didFailWithError error: Error
     ) {
       print("didFailWithError \(error.localizedDescription)")
+
+      if (error as NSError).code == CLError.locationUnknown.rawValue {
+        return
+      }
+      lastLocationError = error
+      stopLocationManager()
+      updateLabels()
     }
+
 
     func locationManager(
       _ manager: CLLocationManager,
