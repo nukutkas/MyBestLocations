@@ -40,7 +40,14 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             return
         }
         
-        startLocationManager()
+        if updatingLocation {
+          stopLocationManager()
+        } else {
+          location = nil
+          lastLocationError = nil
+          startLocationManager()
+        }
+
         updateLabels()
     }
     
@@ -136,8 +143,8 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
                 statusMessage = "Tap 'Get My Location' to Start"
             }
             messageLabel.text = statusMessage
-            configureGetButton()
         }
+        configureGetButton()
     }
     
     func startLocationManager() {
