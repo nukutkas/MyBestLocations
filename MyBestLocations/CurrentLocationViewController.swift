@@ -26,7 +26,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     var placemark: CLPlacemark?
     var performingReverseGeocoding = false
     var lastGeocodingError: Error?
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,13 +47,13 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         }
         
         if updatingLocation {
-          stopLocationManager()
+            stopLocationManager()
         } else {
-          location = nil
-          lastLocationError = nil
-          startLocationManager()
+            location = nil
+            lastLocationError = nil
+            startLocationManager()
         }
-
+        
         updateLabels()
     }
     
@@ -74,33 +74,48 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     
     
     func locationManager(
-      _ manager: CLLocationManager,
-      didUpdateLocations locations: [CLLocation]
+        _ manager: CLLocationManager,
+        didUpdateLocations locations: [CLLocation]
     ) {
-      let newLocation = locations.last!
-      print("didUpdateLocations \(newLocation)")
-
-      if newLocation.timestamp.timeIntervalSinceNow < -5 {
-        return
-      }
-
-      if newLocation.horizontalAccuracy < 0 {
-        return
-      }
-
-      if location == nil || location!.horizontalAccuracy > newLocation.horizontalAccuracy {
-
-        lastLocationError = nil
-        location = newLocation
-
-        if newLocation.horizontalAccuracy <= locationManager.desiredAccuracy {
-          print("*** We're done!")
-          stopLocationManager()
+        let newLocation = locations.last!
+        print("didUpdateLocations \(newLocation)")
+        
+        if newLocation.timestamp.timeIntervalSinceNow < -5 {
+            return
         }
-        updateLabels()
-      }
+        
+        if newLocation.horizontalAccuracy < 0 {
+            return
+        }
+        
+        if location == nil || location!.horizontalAccuracy > newLocation.horizontalAccuracy {
+            
+            lastLocationError = nil
+            location = newLocation
+            
+            if newLocation.horizontalAccuracy <= locationManager.desiredAccuracy {
+                print("*** We're done!")
+                stopLocationManager()
+            }
+            updateLabels()
+            if !performingReverseGeocoding {
+                print("*** Going to geocode")
+                
+                performingReverseGeocoding = true
+                
+                geocoder.reverseGeocodeLocation(newLocation) {placemarks, error in
+                    if let error = error {
+                        print("*** Reverse Geocoding error: \(error.localizedDescription)")
+                        return
+                    }
+                    if let places = placemarks {
+                        print("*** Found places: \(places)")
+                    }
+                }
+            }
+        }
     }
-
+    
     
     // MARK: - Helper Methods
     func showLocationServicesDeniedAlert() {
@@ -171,12 +186,12 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     }
     
     func configureGetButton() {
-      if updatingLocation {
-        getButton.setTitle("Stop", for: .normal)
-      } else {
-        getButton.setTitle("Get My Location", for: .normal)
-      }
+        if updatingLocation {
+            getButton.setTitle("Stop", for: .normal)
+        } else {
+            getButton.setTitle("Get My Location", for: .normal)
+        }
     }
-
+    
 }
 
