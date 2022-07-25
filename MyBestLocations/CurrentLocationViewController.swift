@@ -51,6 +51,8 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         } else {
             location = nil
             lastLocationError = nil
+            placemark = nil
+            lastGeocodingError = nil
             startLocationManager()
         }
         
@@ -104,13 +106,17 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
                 performingReverseGeocoding = true
                 
                 geocoder.reverseGeocodeLocation(newLocation) {placemarks, error in
-                    if let error = error {
-                        print("*** Reverse Geocoding error: \(error.localizedDescription)")
-                        return
+                    
+                    self.lastGeocodingError = error
+                    if error == nil, let places = placemarks, !places.isEmpty {
+                      self.placemark = places.last!
+                    } else {
+                      self.placemark = nil
                     }
-                    if let places = placemarks {
-                        print("*** Found places: \(places)")
-                    }
+
+                    self.performingReverseGeocoding = false
+                    self.updateLabels()
+
                 }
             }
         }
@@ -143,6 +149,16 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
                 location.coordinate.longitude)
             tagButton.isHidden = false
             messageLabel.text = ""
+            
+            if let placemark = placemark {
+                addressLabel.text = string(from: placemark)
+              } else if performingReverseGeocoding {
+                addressLabel.text = "Searching for Address..."
+              } else if lastGeocodingError != nil {
+                addressLabel.text = "Error Finding Address"
+              } else {
+                addressLabel.text = "No Address Found"
+              }
         } else {
             latitudeLabel.text = ""
             longitudeLabel.text = ""
@@ -193,5 +209,31 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         }
     }
     
+    func string(from placemark: CLPlacemark) -> String {
+      // 1
+      var line1 = ""
+      // 2
+      if let tmp = placemark.subThoroughfare {
+        line1 += tmp + " "
+      }
+      // 3
+      if let tmp = placemark.thoroughfare {
+        line1 += tmp
+      }
+      // 4
+      var line2 = ""
+      if let tmp = placemark.locality {
+        line2 += tmp + " "
+      }
+      if let tmp = placemark.administrativeArea {
+        line2 += tmp + " "
+      }
+      if let tmp = placemark.postalCode {
+        line2 += tmp
+      }
+      // 5
+      return line1 + "\n" + line2
+    }
+
 }
 
