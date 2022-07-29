@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5C762242894068400E393AD /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C762232894068400E393AD /* LocationDetailsViewController.swift */; };
 		E5D1DE6128898D4D00D8E7EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1DE6028898D4D00D8E7EE /* AppDelegate.swift */; };
 		E5D1DE6328898D4D00D8E7EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1DE6228898D4D00D8E7EE /* SceneDelegate.swift */; };
 		E5D1DE6528898D4D00D8E7EE /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1DE6428898D4D00D8E7EE /* CurrentLocationViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E5C762232894068400E393AD /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
 		E5D1DE5D28898D4D00D8E7EE /* MyBestLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBestLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D1DE6028898D4D00D8E7EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5D1DE6228898D4D00D8E7EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				E5D1DE6028898D4D00D8E7EE /* AppDelegate.swift */,
 				E5D1DE6228898D4D00D8E7EE /* SceneDelegate.swift */,
 				E5D1DE6428898D4D00D8E7EE /* CurrentLocationViewController.swift */,
+				E5C762232894068400E393AD /* LocationDetailsViewController.swift */,
 				E5D1DE6628898D4D00D8E7EE /* Main.storyboard */,
 				E5D1DE6C28898D5000D8E7EE /* Assets.xcassets */,
 				E5D1DE6E28898D5000D8E7EE /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 				E5D1DE6528898D4D00D8E7EE /* CurrentLocationViewController.swift in Sources */,
 				E5D1DE6128898D4D00D8E7EE /* AppDelegate.swift in Sources */,
 				E5D1DE6328898D4D00D8E7EE /* SceneDelegate.swift in Sources */,
+				E5C762242894068400E393AD /* LocationDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +302,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = "location-services";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -328,6 +333,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = "location-services";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
