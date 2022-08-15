@@ -161,7 +161,18 @@
                             <outlet property="delegate" destination="bxm-mr-5ZM" id="lpk-S7-I3J"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Tag Location" id="nl5-T4-Bpx"/>
+                    <navigationItem key="navigationItem" title="Tag Location" id="nl5-T4-Bpx">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wEc-cT-7w6">
+                            <connections>
+                                <action selector="cancel" destination="bxm-mr-5ZM" id="1Ug-gT-1ZV"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="TL0-gC-KBL">
+                            <connections>
+                                <action selector="done" destination="bxm-mr-5ZM" id="WJ3-RU-fST"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgy-ng-blb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
