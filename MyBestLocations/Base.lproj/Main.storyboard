@@ -325,6 +325,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressLabel" destination="nIO-mb-Lel" id="U84-Nm-6ee"/>
+                        <outlet property="categoryLabel" destination="nIO-mb-Lel" id="1tj-ig-kAT"/>
+                        <outlet property="dateLabel" destination="gdz-de-V7g" id="7xV-qZ-iBC"/>
+                        <outlet property="descriptionTextView" destination="k1A-vT-1JY" id="Quq-vy-Y1V"/>
+                        <outlet property="latitudeLabel" destination="Cjf-u1-2iS" id="o2L-Hi-YlI"/>
+                        <outlet property="longitudeLabel" destination="heu-zh-cv7" id="ni9-Gh-wkO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgy-ng-blb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
