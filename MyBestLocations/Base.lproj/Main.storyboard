@@ -66,7 +66,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Tag Location"/>
                                 <connections>
-                                    <segue destination="bxm-mr-5ZM" kind="show" identifier="Tag Location" id="APS-Lz-IGa"/>
+                                    <segue destination="bxm-mr-5ZM" kind="show" identifier="TagLocation" id="APS-Lz-IGa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZJ-j4-cHd">
@@ -326,12 +326,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addressLabel" destination="nIO-mb-Lel" id="U84-Nm-6ee"/>
-                        <outlet property="categoryLabel" destination="nIO-mb-Lel" id="1tj-ig-kAT"/>
-                        <outlet property="dateLabel" destination="gdz-de-V7g" id="7xV-qZ-iBC"/>
-                        <outlet property="descriptionTextView" destination="k1A-vT-1JY" id="Quq-vy-Y1V"/>
-                        <outlet property="latitudeLabel" destination="Cjf-u1-2iS" id="o2L-Hi-YlI"/>
-                        <outlet property="longitudeLabel" destination="heu-zh-cv7" id="ni9-Gh-wkO"/>
+                        <outlet property="addressLabel" destination="nzW-9f-FQX" id="tE9-IZ-XPB"/>
+                        <outlet property="categoryLabel" destination="e3Y-aq-Cl3" id="Bxq-Wr-s7z"/>
+                        <outlet property="dateLabel" destination="v72-Jm-ROV" id="gQt-UH-Zch"/>
+                        <outlet property="descriptionTextView" destination="k1A-vT-1JY" id="2VN-pk-2I6"/>
+                        <outlet property="latitudeLabel" destination="MIk-va-SXe" id="oDj-dI-oDC"/>
+                        <outlet property="longitudeLabel" destination="vhc-El-lIb" id="EfE-WH-hWl"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgy-ng-blb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -21,14 +21,11 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     var location: CLLocation?
     var updatingLocation = false
     var lastLocationError: Error?
-    
     let geocoder = CLGeocoder()
     var placemark: CLPlacemark?
     var performingReverseGeocoding = false
     var lastGeocodingError: Error?
-    
     var timer: Timer?
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +42,15 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         navigationController?.isNavigationBarHidden = false
     }
     
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TagLocation" {
+            let controller = segue.destination as! LocationDetailsViewController
+            controller.coordinate = location!.coordinate
+            controller.placemark = placemark
+        }
+    }
+    
     // MARK: - Actions
     @IBAction func getLocation() {
         let authStatus = locationManager.authorizationStatus
@@ -52,7 +58,6 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             locationManager.requestWhenInUseAuthorization()
             return
         }
-        
         if authStatus == .denied || authStatus == .restricted {
             showLocationServicesDeniedAlert()
             return
@@ -67,7 +72,6 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             lastGeocodingError = nil
             startLocationManager()
         }
-        
         updateLabels()
     }
     
@@ -85,7 +89,6 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         stopLocationManager()
         updateLabels()
     }
-    
     
     func locationManager(
         _ manager: CLLocationManager,
@@ -108,27 +111,24 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         }
         
         if location == nil || location!.horizontalAccuracy > newLocation.horizontalAccuracy {
-            
             lastLocationError = nil
             location = newLocation
             
             if newLocation.horizontalAccuracy <= locationManager.desiredAccuracy {
                 print("*** We're done!")
                 stopLocationManager()
+                
+                if distance > 0 {
+                    performingReverseGeocoding = false
+                }
             }
             
-            if distance > 0 {
-                performingReverseGeocoding = false
-            }
-            
-            updateLabels()
             if !performingReverseGeocoding {
                 print("*** Going to geocode")
                 
                 performingReverseGeocoding = true
                 
                 geocoder.reverseGeocodeLocation(newLocation) {placemarks, error in
-                    
                     self.lastGeocodingError = error
                     if error == nil, let places = placemarks, !places.isEmpty {
                         self.placemark = places.last!
@@ -138,9 +138,10 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
                     
                     self.performingReverseGeocoding = false
                     self.updateLabels()
-                    
                 }
             }
+            
+            updateLabels()
         } else if distance < 1 {
             let timeInterval = newLocation.timestamp.timeIntervalSince(location!.timestamp)
             if timeInterval > 10 {
@@ -150,7 +151,6 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             }
         }
     }
-    
     
     // MARK: - Helper Methods
     func showLocationServicesDeniedAlert() {
@@ -221,11 +221,11 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             updatingLocation = true
             
             timer = Timer.scheduledTimer(
-                  timeInterval: 60,
-                  target: self,
-                  selector: #selector(didTimeOut),
-                  userInfo: nil,
-                  repeats: false)
+                timeInterval: 60,
+                target: self,
+                selector: #selector(didTimeOut),
+                userInfo: nil,
+                repeats: false)
         }
     }
     
@@ -236,8 +236,8 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             updatingLocation = false
             
             if let timer = timer {
-                 timer.invalidate()
-               }
+                timer.invalidate()
+            }
         }
     }
     
@@ -250,17 +250,13 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     }
     
     func string(from placemark: CLPlacemark) -> String {
-        // 1
         var line1 = ""
-        // 2
         if let tmp = placemark.subThoroughfare {
             line1 += tmp + " "
         }
-        // 3
         if let tmp = placemark.thoroughfare {
             line1 += tmp
         }
-        // 4
         var line2 = ""
         if let tmp = placemark.locality {
             line2 += tmp + " "
@@ -271,28 +267,18 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         if let tmp = placemark.postalCode {
             line2 += tmp
         }
-        // 5
         return line1 + "\n" + line2
     }
     
     @objc func didTimeOut() {
-      print("*** Time out")
-      if location == nil {
-        stopLocationManager()
-        lastLocationError = NSError(
-          domain: "MyLocationsErrorDomain",
-          code: 1,
-          userInfo: nil)
-        updateLabels()
-      }
-    }
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      if segue.identifier == "TagLocation" {
-        let controller = segue.destination as! LocationDetailsViewController
-        controller.coordinate = location!.coordinate
-        controller.placemark = placemark
-      }
+        print("*** Time out")
+        if location == nil {
+            stopLocationManager()
+            lastLocationError = NSError(
+                domain: "MyLocationsErrorDomain",
+                code: 1,
+                userInfo: nil)
+            updateLabels()
+        }
     }
 }
-
