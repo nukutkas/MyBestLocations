@@ -9,10 +9,10 @@ import UIKit
 import CoreLocation
 
 private let dateFormatter: DateFormatter = {
-  let formatter = DateFormatter()
-  formatter.dateStyle = .medium
-  formatter.timeStyle = .short
-  return formatter
+    let formatter = DateFormatter()
+    formatter.dateStyle = .medium
+    formatter.timeStyle = .short
+    return formatter
 }()
 
 class LocationDetailsViewController: UITableViewController {
@@ -27,12 +27,13 @@ class LocationDetailsViewController: UITableViewController {
         latitude: 0,
         longitude: 0)
     var placemark: CLPlacemark?
+    var categoryName = "No Category"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         descriptionTextView.text = ""
-        categoryLabel.text = ""
+        categoryLabel.text = categoryName
         
         latitudeLabel.text = String(
             format: "%.8f",
@@ -62,32 +63,37 @@ class LocationDetailsViewController: UITableViewController {
     
     // MARK: - Helper Methods
     func string(from placemark: CLPlacemark) -> String {
-      var text = ""
-      if let tmp = placemark.subThoroughfare {
-        text += tmp + " "
-      }
-      if let tmp = placemark.thoroughfare {
-        text += tmp + ", "
-      }
-      if let tmp = placemark.locality {
-        text += tmp + ", "
-      }
-      if let tmp = placemark.administrativeArea {
-        text += tmp + " "
-      }
-      if let tmp = placemark.postalCode {
-        text += tmp + ", "
-      }
-      if let tmp = placemark.country {
-        text += tmp
-      }
-      return text
+        var text = ""
+        if let tmp = placemark.subThoroughfare {
+            text += tmp + " "
+        }
+        if let tmp = placemark.thoroughfare {
+            text += tmp + ", "
+        }
+        if let tmp = placemark.locality {
+            text += tmp + ", "
+        }
+        if let tmp = placemark.administrativeArea {
+            text += tmp + " "
+        }
+        if let tmp = placemark.postalCode {
+            text += tmp + ", "
+        }
+        if let tmp = placemark.country {
+            text += tmp
+        }
+        return text
     }
     
     func format(date: Date) -> String {
-      return dateFormatter.string(from: date)
+        return dateFormatter.string(from: date)
     }
-
-
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PickCategory" {
+            let controller = segue.destination as! CategoryPickerViewController
+            controller.selectedCategoryName = categoryName
+        }
+    }
 }
 
