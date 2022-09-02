@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E5381CB628B296C800BC5820 /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5381CB528B296C800BC5820 /* CategoryPickerViewController.swift */; };
 		E5ACCF9628C1EF9F0048ECDA /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ACCF9528C1EF9F0048ECDA /* HudView.swift */; };
+		E5ACCF9828C23C270048ECDA /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ACCF9728C23C270048ECDA /* Functions.swift */; };
 		E5C762242894068400E393AD /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C762232894068400E393AD /* LocationDetailsViewController.swift */; };
 		E5D1DE6128898D4D00D8E7EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1DE6028898D4D00D8E7EE /* AppDelegate.swift */; };
 		E5D1DE6328898D4D00D8E7EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D1DE6228898D4D00D8E7EE /* SceneDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		E5381CB528B296C800BC5820 /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
 		E5ACCF9528C1EF9F0048ECDA /* HudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
+		E5ACCF9728C23C270048ECDA /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		E5C762232894068400E393AD /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
 		E5D1DE5D28898D4D00D8E7EE /* MyBestLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBestLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D1DE6028898D4D00D8E7EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				E5D1DE6428898D4D00D8E7EE /* CurrentLocationViewController.swift */,
 				E5C762232894068400E393AD /* LocationDetailsViewController.swift */,
 				E5ACCF9528C1EF9F0048ECDA /* HudView.swift */,
+				E5ACCF9728C23C270048ECDA /* Functions.swift */,
 				E5381CB528B296C800BC5820 /* CategoryPickerViewController.swift */,
 				E5D1DE6628898D4D00D8E7EE /* Main.storyboard */,
 				E5D1DE6C28898D5000D8E7EE /* Assets.xcassets */,
@@ -153,6 +156,7 @@
 				E5381CB628B296C800BC5820 /* CategoryPickerViewController.swift in Sources */,
 				E5D1DE6B28898D4D00D8E7EE /* MyBestLocations.xcdatamodeld in Sources */,
 				E5D1DE6528898D4D00D8E7EE /* CurrentLocationViewController.swift in Sources */,
+				E5ACCF9828C23C270048ECDA /* Functions.swift in Sources */,
 				E5D1DE6128898D4D00D8E7EE /* AppDelegate.swift in Sources */,
 				E5D1DE6328898D4D00D8E7EE /* SceneDelegate.swift in Sources */,
 				E5ACCF9628C1EF9F0048ECDA /* HudView.swift in Sources */,
