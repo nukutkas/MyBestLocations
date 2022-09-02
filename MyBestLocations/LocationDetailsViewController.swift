@@ -51,18 +51,21 @@ class LocationDetailsViewController: UITableViewController {
         
         // Hide keyboard
         let gestureRecognizer = UITapGestureRecognizer(
-          target: self,
-          action: #selector(hideKeyboard))
+            target: self,
+            action: #selector(hideKeyboard))
         gestureRecognizer.cancelsTouchesInView = false
         tableView.addGestureRecognizer(gestureRecognizer)
-
+        
     }
     
     
     
     // MARK: - Actions
     @IBAction func done() {
-        navigationController?.popViewController(animated: true)
+        guard let mainView = navigationController?.parent?.view
+        else { return }
+        let hudView = HudView.hud(inView: mainView, animated: true)
+        hudView.text = "Tagged"
     }
     
     @IBAction func cancel() {
@@ -70,13 +73,13 @@ class LocationDetailsViewController: UITableViewController {
     }
     
     @IBAction func categoryPickerDidPickCategory(
-      _ segue: UIStoryboardSegue
+        _ segue: UIStoryboardSegue
     ) {
-      let controller = segue.source as! CategoryPickerViewController
-      categoryName = controller.selectedCategoryName
-      categoryLabel.text = categoryName
+        let controller = segue.source as! CategoryPickerViewController
+        categoryName = controller.selectedCategoryName
+        categoryLabel.text = categoryName
     }
-
+    
     
     // MARK: - Helper Methods
     func string(from placemark: CLPlacemark) -> String {
@@ -107,16 +110,16 @@ class LocationDetailsViewController: UITableViewController {
     }
     
     @objc func hideKeyboard(
-      _ gestureRecognizer: UIGestureRecognizer
+        _ gestureRecognizer: UIGestureRecognizer
     ) {
-      let point = gestureRecognizer.location(in: tableView)
-      let indexPath = tableView.indexPathForRow(at: point)
-
-      if indexPath != nil && indexPath!.section == 0 &&
-          indexPath!.row == 0 {
-        return
-      }
-      descriptionTextView.resignFirstResponder()
+        let point = gestureRecognizer.location(in: tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        if indexPath != nil && indexPath!.section == 0 &&
+            indexPath!.row == 0 {
+            return
+        }
+        descriptionTextView.resignFirstResponder()
     }
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -128,24 +131,24 @@ class LocationDetailsViewController: UITableViewController {
     
     // MARK: - Table View Delegates
     override func tableView(
-      _ tableView: UITableView,
-      willSelectRowAt indexPath: IndexPath
+        _ tableView: UITableView,
+        willSelectRowAt indexPath: IndexPath
     ) -> IndexPath? {
-      if indexPath.section == 0 || indexPath.section == 1 {
-        return indexPath
-      } else {
-        return nil
-      }
+        if indexPath.section == 0 || indexPath.section == 1 {
+            return indexPath
+        } else {
+            return nil
+        }
     }
-
+    
     override func tableView(
-      _ tableView: UITableView,
-      didSelectRowAt indexPath: IndexPath
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
     ) {
-      if indexPath.section == 0 && indexPath.row == 0 {
-        descriptionTextView.becomeFirstResponder()
-      }
+        if indexPath.section == 0 && indexPath.row == 0 {
+            descriptionTextView.becomeFirstResponder()
+        }
     }
-
+    
 }
 
