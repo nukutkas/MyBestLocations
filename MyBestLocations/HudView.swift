@@ -20,6 +20,7 @@ class HudView: UIView {
         view.addSubview(hudView)
         view.isUserInteractionEnabled = false
         
+        hudView.show(animated: animated)
         return hudView
     }
     override func draw(_ rect: CGRect) {
@@ -62,5 +63,17 @@ class HudView: UIView {
 
     }
     
+    // MARK: - Helper methods
+    func show(animated: Bool) {
+      if animated {
+        alpha = 0
+        transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        UIView.animate(withDuration: 0.3) {
+          self.alpha = 1
+          self.transform = CGAffineTransform.identity
+        }
+      }
+    }
+
 }
 
